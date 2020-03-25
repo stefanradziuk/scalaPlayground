@@ -8,7 +8,7 @@ sealed trait Tree[A] {
 
   def map[B](f: A => B): Tree[B] = {
     fold[Tree[B]](Leaf[B]()) {
-      (item, left, right) => Node[B](f(item), left.map(f), right.map(f))
+      (item, left, right) => Node[B](f(item), left, right)
     }
   }
 }
